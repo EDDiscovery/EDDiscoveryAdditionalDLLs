@@ -163,6 +163,8 @@ namespace EDD3D.Chart.Controllers.Mouse.Camera
 				_prevZoomY = 0.8f;
 				_prevZoomZ = 0.8f;
 			}
+			ZoomX(_prevZoomX);
+			ZoomY(_prevZoomY);
 			ZoomZ(_prevZoomZ);
 		}
 
