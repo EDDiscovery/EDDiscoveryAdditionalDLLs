@@ -16,7 +16,7 @@ namespace Demos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ScatterChart());
+            Application.Run(new ScatterDemo());
         }
     }
 }

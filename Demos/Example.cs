@@ -37,14 +37,6 @@ namespace Demos
 
         private void InitRenderer()
         {
-
-            // Create the Renderer 3D control.
-            //Renderer3D myRenderer3D = new Renderer3D();
-
-            // Add the Renderer control to the panel
-            // mainPanel.Controls.Clear();
-            //mainPanel.Controls.Add(myRenderer3D);
-
             // Create a range for the graph generation
             Range range = new Range(-150, 150);
             int steps = 50;

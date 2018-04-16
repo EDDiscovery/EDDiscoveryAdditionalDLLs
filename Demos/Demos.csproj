@@ -38,6 +38,9 @@
     <Reference Include="EDD3D">
       <HintPath>..\EDD3D\bin\Debug\EDD3D.dll</HintPath>
     </Reference>
+    <Reference Include="EDDTK">
+      <HintPath>..\EDDTK\bin\Debug\EDDTK.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\EDD3D\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
