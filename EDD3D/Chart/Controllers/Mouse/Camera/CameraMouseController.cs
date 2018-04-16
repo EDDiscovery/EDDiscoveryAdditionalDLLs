@@ -21,6 +21,8 @@ namespace EDD3D.Chart.Controllers.Mouse.Camera
 		protected Coord2d _prevMouse;
 		protected CameraThreadController _threadController;
 
+		protected float _prevZoomX = 1;
+		protected float _prevZoomY = 1;
 		protected float _prevZoomZ = 1;
 		public CameraMouseController()
 		{
@@ -153,8 +155,12 @@ namespace EDD3D.Chart.Controllers.Mouse.Camera
 				_threadController.StopT();
 			}
 			if (e.Delta > 0) {
+				_prevZoomX = 1.25f;
+				_prevZoomY = 1.25f;
 				_prevZoomZ = 1.25f;
 			} else {
+				_prevZoomX = 0.8f;
+				_prevZoomY = 0.8f;
 				_prevZoomZ = 0.8f;
 			}
 			ZoomZ(_prevZoomZ);
