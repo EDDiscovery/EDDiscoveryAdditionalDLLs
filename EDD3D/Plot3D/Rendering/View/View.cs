@@ -740,6 +740,7 @@ namespace EDD3D.Plot3D.Rendering.View
 				case Modes.ViewPositionMode.FREE:
 					eye = _viewpoint.cartesian().@add(target);
 					break;
+                // sticky top view 
 				case Modes.ViewPositionMode.TOP:
 					eye = _viewpoint;
 					eye.x = -PI_div2;
@@ -748,6 +749,7 @@ namespace EDD3D.Plot3D.Rendering.View
 					// on top
                     eye = eye.cartesian().@add(target);
 					break;
+                // sticky front view
 				case Modes.ViewPositionMode.FRONT:
 					eye = _viewpoint;
 					eye.x = 0;
@@ -756,11 +758,13 @@ namespace EDD3D.Plot3D.Rendering.View
 					// on top
                     eye = eye.cartesian().@add(target);
 					break;
+                // rotate only around y axis
 				case Modes.ViewPositionMode.PROFILE:
 					eye = _viewpoint;
 					eye.y = 0;
                     eye = eye.cartesian().@add(target);
 					break;
+                // rotate only around x axis
 				case Modes.ViewPositionMode.SPIN:
 					eye = _viewpoint;
 					eye.x = 0;
