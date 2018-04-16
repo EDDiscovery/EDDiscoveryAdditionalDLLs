@@ -20,15 +20,15 @@ namespace EDD3D.Maths
 
 		#region "Members"
 		public double x;
-		public double y;
-			#endregion
+		public double y;		
 		public double z;
+        #endregion
 
 		#region "Constants"
 		public static Coord3d ORIGIN = new Coord3d(0, 0, 0);
-		public static Coord3d INVALID = new Coord3d(double.NaN, double.NaN, double.NaN);
-			#endregion
+		public static Coord3d INVALID = new Coord3d(double.NaN, double.NaN, double.NaN);			
 		public static Coord3d IDENTITY = new Coord3d(1, 1, 1);
+        #endregion
 
 		#region "Constructors"
 		public Coord3d() : this(0, 0, 0)
