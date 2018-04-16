@@ -21,16 +21,14 @@ namespace EDD3D.Chart
 
 	public class Chart
 	{
-
 		protected ChartScene _scene;
 		protected View _view;
 		protected ICanvas _canvas;
 		protected Coord3d _previousViewPointFree;
 		protected Coord3d _previousViewPointTop;
 		protected Coord3d _previousViewPointFront;
-		protected Coord3d _previousViewPointProfile;
-		protected Coord3d _previousViewPointSpin;
-		protected List<AbstractCameraController> _controllers;
+        protected Coord3d _previousViewPointProfile;
+        protected List<AbstractCameraController> _controllers;
 		//protected  capabilities As GLCapabilities
 
 
@@ -209,9 +207,6 @@ namespace EDD3D.Chart
 					case ViewPositionMode.PROFILE:
 						_previousViewPointProfile = View.ViewPoint;
 						break;
-					case ViewPositionMode.SPIN:
-						_previousViewPointSpin = View.ViewPoint;
-						break;
 					case ViewPositionMode.TOP:
 						_previousViewPointTop = View.ViewPoint;
 						break;
@@ -229,9 +224,6 @@ namespace EDD3D.Chart
 						break;
 					case ViewPositionMode.PROFILE:
                         _view.ViewPoint = ((_previousViewPointProfile == null) ? View.DEFAULT_VIEW.Clone() : _previousViewPointProfile);
-						break;
-					case ViewPositionMode.SPIN:
-                        _view.ViewPoint = ((_previousViewPointSpin == null) ? View.DEFAULT_VIEW.Clone() : _previousViewPointSpin);
 						break;
 					case ViewPositionMode.TOP:
                         _view.ViewPoint = ((_previousViewPointTop == null) ? View.DEFAULT_VIEW.Clone() : _previousViewPointTop);

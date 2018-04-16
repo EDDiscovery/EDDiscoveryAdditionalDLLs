@@ -141,6 +141,19 @@ namespace EDD3D.Plot3D.Rendering.View
 			//fireControllerEvent(ControllerType.SHIFT, newScale);
 		}
 
+		public void Pan(float factor)
+		{
+			Pan(factor, true);
+		}
+
+		public void Pan(float factor, bool updateView)
+		{
+			EDD3D.Maths.Scale current = this.Scale;
+			EDD3D.Maths.Scale newScale = current.@add(factor * current.Range);
+			setScale(newScale, updateView);
+			//fireControllerEvent(ControllerType.PAN, newScale);
+		}
+
 		public void Zoom(float factor)
 		{
 			Zoom(factor, true);
@@ -732,7 +745,7 @@ namespace EDD3D.Plot3D.Rendering.View
 
 		public void UpdateCamera(ViewPort viewport, BoundingBox3d boundsScaled, float sceneRadiusScaled)
 		{
-			Coord3d target = _center.multiply(_scaling);
+			Coord3d target = _center.multiply(_scaling);            
 			Coord3d eye = default(Coord3d);
 			_viewpoint.z = sceneRadiusScaled * 2;
 			// maintain a reasonnable distance to the scene for viewing it
@@ -753,7 +766,7 @@ namespace EDD3D.Plot3D.Rendering.View
 				case Modes.ViewPositionMode.FRONT:
 					eye = _viewpoint;
 					eye.x = 0;
-					// on x
+					// on y
 					eye.y = 0;
 					// on top
                     eye = eye.cartesian().@add(target);
@@ -763,14 +776,7 @@ namespace EDD3D.Plot3D.Rendering.View
 					eye = _viewpoint;
 					eye.y = 0;
                     eye = eye.cartesian().@add(target);
-					break;
-                // rotate only around x axis
-				case Modes.ViewPositionMode.SPIN:
-					eye = _viewpoint;
-					eye.x = 0;
-                    eye = eye.cartesian().@add(target);
-					break;
-				default:
+					break;                
 					throw new Exception("Unsupported viewmode : " + _viewmode);
 			}
 			Coord3d up = default(Coord3d);

@@ -141,9 +141,16 @@ namespace EDD3D.Chart.Controllers.Mouse.Camera
                 if (e.Button == System.Windows.Forms.MouseButtons.Right)
                 {
 					Coord2d move = mouse.substract(_prevMouse);
-					if (move.y != 0) {
-						Shift((float)(move.y / 250));
+					if (move.y != 0)
+                    {
+                        Shift((float)(move.y / 250));
 					}
+                    /*
+                    if (move.x != 0)
+                    {
+                        Pan((float)(move.x / 250));
+                    }
+                    */
 				}
 				_prevMouse = mouse;
 			}
@@ -167,9 +174,7 @@ namespace EDD3D.Chart.Controllers.Mouse.Camera
 			ZoomY(_prevZoomY);
 			ZoomZ(_prevZoomZ);
 		}
-
 	}
-
 }
 
 //=======================================================

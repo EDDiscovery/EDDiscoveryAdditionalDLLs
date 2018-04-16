@@ -14,7 +14,6 @@ namespace EDD3D.Plot3D.Rendering.View.Modes
 	/// </summary>
 	public enum ViewPositionMode
 	{
-
 		/// <summary>
 		/// Enforce view point on top of the scene.
 		/// </summary>
@@ -30,16 +29,9 @@ namespace EDD3D.Plot3D.Rendering.View.Modes
 		/// </summary>
 		PROFILE,
 
-		/// <summary>
-		/// <summary>
-		/// Enforce view point on profile of the scene.
-		/// </summary>
-		SPIN,
-
 		/// No enforcement of view point: let the user freely turn around the scene.
 		/// </summary>
 		FREE
-
 	}
 
 }

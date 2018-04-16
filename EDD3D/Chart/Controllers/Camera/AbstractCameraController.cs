@@ -14,8 +14,6 @@ namespace EDD3D.Chart.Controllers.Camera
 
 	public class AbstractCameraController : AbstractController
 	{
-
-
 		public static bool DEFAULT_UPDATE_VIEW = false;
 		public AbstractCameraController() : base()
 		{
@@ -38,7 +36,6 @@ namespace EDD3D.Chart.Controllers.Camera
 			fireControllerEvent(ControllerType.ROTATE, move);
 		}
 
-
 		protected void Shift(float factor)
 		{
 			Shift(factor, DEFAULT_UPDATE_VIEW);
@@ -50,6 +47,19 @@ namespace EDD3D.Chart.Controllers.Camera
 				c.View.Shift(factor, updateView);
 			}
 			fireControllerEvent(ControllerType.SHIFT, factor);
+		}
+
+		protected void Pan(float factor)
+		{
+			Pan(factor, DEFAULT_UPDATE_VIEW);
+		}
+
+		protected void Pan(float factor, bool updateView)
+		{
+			foreach (Chart c in _targets) {
+				c.View.Pan(factor, updateView);
+			}
+			fireControllerEvent(ControllerType.PAN, factor);
 		}
 
 		protected void ZoomX(float factor)
@@ -90,9 +100,7 @@ namespace EDD3D.Chart.Controllers.Camera
 			}
 			fireControllerEvent(ControllerType.ZOOM, factor);
 		}
-
 	}
-
 }
 
 //=======================================================

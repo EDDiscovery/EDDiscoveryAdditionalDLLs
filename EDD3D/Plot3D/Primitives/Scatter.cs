@@ -84,13 +84,16 @@ namespace EDD3D.Plot3D.Primitives
 
         private void UpdateBounds() {
             _bbox.reset();
-            foreach (var c in _coordinates) {
-                _bbox.add(c);
-            }
-            
+            if (_coordinates != null)
+            {
+                foreach (var c in _coordinates)
+                {
+                    _bbox.add(c);
+                }
+            }            
         }
 
-        private Coord3d[] Data
+        public Coord3d[] Data
         {
             get => _coordinates;
             set
