@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-//using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,13 +22,19 @@ namespace Demos
 {
     public partial class ScatterDemo : Form
     {
+        protected Coord2d _prevCoord;
+        protected Coord2d _centerCoord;
+
         private CameraThreadController t;
         private IAxeLayout axeLayout;
         private Chart _chart;
 
+        private Coord2d TopCorner;
+        private Coord2d Center;
+
         public ScatterDemo()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void InitScatter()
@@ -121,6 +126,7 @@ namespace Demos
         private void renderer3D1_Load(object sender, EventArgs e)
         {
             InitScatter();
+            OnMoveOrResize();
         }
 
         private void ScatterForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -131,6 +137,14 @@ namespace Demos
         private void comboBox1_ValueMemberChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void OnMoveOrResize()
+        {
+            Coord2d TopCorner = new Coord2d(renderer3D1.Left, renderer3D1.Top);
+            Coord2d Center = new Coord2d(TopCorner.x + renderer3D1.Width / 2, TopCorner.y + renderer3D1.Height / 2);
+
+            _prevCoord = new Coord2d(Center.x, Center.y);
         }
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -155,50 +169,18 @@ namespace Demos
 
         private void renderer3D1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.NumPad0)
-            {
-                
-            }
-
-            if (e.KeyCode == Keys.NumPad1)
-            {
-                
-            }
-
-            if (e.KeyCode == Keys.NumPad2)
-            {
-                
-            }
-
-            if (e.KeyCode == Keys.NumPad3)
-            {
-                
-            }
-
             if (e.KeyCode == Keys.Up)
-            {
-                // turn up
-                renderer3D1.View.setViewPoint(new Coord3d(+0, +50, +0), true);
+            {                
             }
-
             if (e.KeyCode == Keys.Down)
-            {
-                // turn down
-                renderer3D1.View.setViewPoint(new Coord3d(+0, -50, +0), true);
+            {             
             }
-
             if (e.KeyCode == Keys.Left)
-            {
-                // turn right
-                renderer3D1.View.setViewPoint(new Coord3d(+50, +0, +0), true);
+            {             
             }
-
             if (e.KeyCode == Keys.Right)
-            {
-                // turn left
-                renderer3D1.View.setViewPoint(new Coord3d(-50, +0, +0), true);
+            {             
             }
-
         }
 
         private void buttonQuarter_Click(object sender, EventArgs e)
@@ -241,6 +223,20 @@ namespace Demos
         {
             // back view
             renderer3D1.View.setViewPoint(new Coord3d(Math.PI, 0, 0), true);
+        }
+
+        private void ScatterDemo_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void renderer3D1_Resize(object sender, EventArgs e)
+        {
+            OnMoveOrResize();
+        }
+
+        private void renderer3D1_Move(object sender, EventArgs e)
+        {
+            OnMoveOrResize();
         }
     }    
 }

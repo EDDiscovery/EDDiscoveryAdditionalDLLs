@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panelInteraction = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonRight = new System.Windows.Forms.Button();
+            this.buttonBottom = new System.Windows.Forms.Button();
+            this.buttonTop = new System.Windows.Forms.Button();
+            this.buttonFront = new System.Windows.Forms.Button();
+            this.buttonQuarter = new System.Windows.Forms.Button();
             this.labelViewMode = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelChart = new System.Windows.Forms.Panel();
             this.renderer3D1 = new EDD3D.Plot3D.Rendering.View.Renderer3D();
-            this.buttonQuarter = new System.Windows.Forms.Button();
-            this.buttonFront = new System.Windows.Forms.Button();
-            this.buttonTop = new System.Windows.Forms.Button();
-            this.buttonBottom = new System.Windows.Forms.Button();
-            this.buttonRight = new System.Windows.Forms.Button();
-            this.buttonLeft = new System.Windows.Forms.Button();
-            this.buttonBack = new System.Windows.Forms.Button();
             this.panelInteraction.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelChart.SuspendLayout();
@@ -63,6 +63,85 @@
             this.panelInteraction.Size = new System.Drawing.Size(160, 600);
             this.panelInteraction.TabIndex = 1;
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(19, 286);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(121, 23);
+            this.buttonBack.TabIndex = 8;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Location = new System.Drawing.Point(20, 253);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(121, 23);
+            this.buttonLeft.TabIndex = 7;
+            this.buttonLeft.Text = "Left";
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            // 
+            // buttonRight
+            // 
+            this.buttonRight.Location = new System.Drawing.Point(19, 220);
+            this.buttonRight.Name = "buttonRight";
+            this.buttonRight.Size = new System.Drawing.Size(121, 23);
+            this.buttonRight.TabIndex = 6;
+            this.buttonRight.Text = "Right";
+            this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            // 
+            // buttonBottom
+            // 
+            this.buttonBottom.Location = new System.Drawing.Point(20, 319);
+            this.buttonBottom.Name = "buttonBottom";
+            this.buttonBottom.Size = new System.Drawing.Size(121, 23);
+            this.buttonBottom.TabIndex = 5;
+            this.buttonBottom.Text = "Bottom";
+            this.buttonBottom.UseVisualStyleBackColor = true;
+            this.buttonBottom.Click += new System.EventHandler(this.buttonBottom_Click);
+            // 
+            // buttonTop
+            // 
+            this.buttonTop.Location = new System.Drawing.Point(19, 154);
+            this.buttonTop.Name = "buttonTop";
+            this.buttonTop.Size = new System.Drawing.Size(121, 23);
+            this.buttonTop.TabIndex = 4;
+            this.buttonTop.Text = "Top";
+            this.buttonTop.UseVisualStyleBackColor = true;
+            this.buttonTop.Click += new System.EventHandler(this.buttonTop_Click);
+            // 
+            // buttonFront
+            // 
+            this.buttonFront.Location = new System.Drawing.Point(20, 187);
+            this.buttonFront.Name = "buttonFront";
+            this.buttonFront.Size = new System.Drawing.Size(121, 23);
+            this.buttonFront.TabIndex = 3;
+            this.buttonFront.Text = "Front";
+            this.buttonFront.UseVisualStyleBackColor = true;
+            this.buttonFront.Click += new System.EventHandler(this.buttonFront_Click);
+            // 
+            // buttonQuarter
+            // 
+            this.buttonQuarter.Location = new System.Drawing.Point(19, 103);
+            this.buttonQuarter.Name = "buttonQuarter";
+            this.buttonQuarter.Size = new System.Drawing.Size(121, 23);
+            this.buttonQuarter.TabIndex = 2;
+            this.buttonQuarter.Text = "Quarter View";
+            this.buttonQuarter.UseVisualStyleBackColor = true;
+            this.buttonQuarter.Click += new System.EventHandler(this.buttonQuarter_Click);
+            // 
+            // labelViewMode
+            // 
+            this.labelViewMode.AutoSize = true;
+            this.labelViewMode.Location = new System.Drawing.Point(20, 27);
+            this.labelViewMode.Name = "labelViewMode";
+            this.labelViewMode.Size = new System.Drawing.Size(60, 13);
+            this.labelViewMode.TabIndex = 1;
+            this.labelViewMode.Text = "View Mode";
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -77,15 +156,6 @@
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMemberChanged += new System.EventHandler(this.comboBox1_ValueMemberChanged);
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
-            // 
-            // labelViewMode
-            // 
-            this.labelViewMode.AutoSize = true;
-            this.labelViewMode.Location = new System.Drawing.Point(20, 27);
-            this.labelViewMode.Name = "labelViewMode";
-            this.labelViewMode.Size = new System.Drawing.Size(60, 13);
-            this.labelViewMode.TabIndex = 1;
-            this.labelViewMode.Text = "View Mode";
             // 
             // panelMain
             // 
@@ -118,76 +188,8 @@
             this.renderer3D1.VSync = false;
             this.renderer3D1.Load += new System.EventHandler(this.renderer3D1_Load);
             this.renderer3D1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.renderer3D1_KeyDown);
-            // 
-            // buttonQuarter
-            // 
-            this.buttonQuarter.Location = new System.Drawing.Point(19, 103);
-            this.buttonQuarter.Name = "buttonQuarter";
-            this.buttonQuarter.Size = new System.Drawing.Size(121, 23);
-            this.buttonQuarter.TabIndex = 2;
-            this.buttonQuarter.Text = "Quarter View";
-            this.buttonQuarter.UseVisualStyleBackColor = true;
-            this.buttonQuarter.Click += new System.EventHandler(this.buttonQuarter_Click);
-            // 
-            // buttonFront
-            // 
-            this.buttonFront.Location = new System.Drawing.Point(20, 187);
-            this.buttonFront.Name = "buttonFront";
-            this.buttonFront.Size = new System.Drawing.Size(121, 23);
-            this.buttonFront.TabIndex = 3;
-            this.buttonFront.Text = "Front";
-            this.buttonFront.UseVisualStyleBackColor = true;
-            this.buttonFront.Click += new System.EventHandler(this.buttonFront_Click);
-            // 
-            // buttonTop
-            // 
-            this.buttonTop.Location = new System.Drawing.Point(19, 154);
-            this.buttonTop.Name = "buttonTop";
-            this.buttonTop.Size = new System.Drawing.Size(121, 23);
-            this.buttonTop.TabIndex = 4;
-            this.buttonTop.Text = "Top";
-            this.buttonTop.UseVisualStyleBackColor = true;
-            this.buttonTop.Click += new System.EventHandler(this.buttonTop_Click);
-            // 
-            // buttonBottom
-            // 
-            this.buttonBottom.Location = new System.Drawing.Point(20, 319);
-            this.buttonBottom.Name = "buttonBottom";
-            this.buttonBottom.Size = new System.Drawing.Size(121, 23);
-            this.buttonBottom.TabIndex = 5;
-            this.buttonBottom.Text = "Bottom";
-            this.buttonBottom.UseVisualStyleBackColor = true;
-            this.buttonBottom.Click += new System.EventHandler(this.buttonBottom_Click);
-            // 
-            // buttonRight
-            // 
-            this.buttonRight.Location = new System.Drawing.Point(19, 220);
-            this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(121, 23);
-            this.buttonRight.TabIndex = 6;
-            this.buttonRight.Text = "Right";
-            this.buttonRight.UseVisualStyleBackColor = true;
-            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
-            // 
-            // buttonLeft
-            // 
-            this.buttonLeft.Location = new System.Drawing.Point(20, 253);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(121, 23);
-            this.buttonLeft.TabIndex = 7;
-            this.buttonLeft.Text = "Left";
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
-            // 
-            // buttonBack
-            // 
-            this.buttonBack.Location = new System.Drawing.Point(19, 286);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(121, 23);
-            this.buttonBack.TabIndex = 8;
-            this.buttonBack.Text = "Back";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            this.renderer3D1.Move += new System.EventHandler(this.renderer3D1_Move);
+            this.renderer3D1.Resize += new System.EventHandler(this.renderer3D1_Resize);
             // 
             // ScatterDemo
             // 
@@ -200,6 +202,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Scatter Demo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScatterForm_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ScatterDemo_KeyDown);
             this.panelInteraction.ResumeLayout(false);
             this.panelInteraction.PerformLayout();
             this.panelMain.ResumeLayout(false);
