@@ -16,7 +16,7 @@ namespace eddtk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new demoForm());
+            Application.Run(new Test());
         }
     }
 }
