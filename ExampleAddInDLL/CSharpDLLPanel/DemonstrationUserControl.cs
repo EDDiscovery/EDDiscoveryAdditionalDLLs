@@ -260,6 +260,14 @@ namespace DemoUserControl
         {
             richTextBox1.AppendText($"Transparent mode {on}\r\n");
         }
+
+        private void buttonGMOs_Click(object sender, EventArgs e)
+        {
+            string v = Prompt.ShowDialog("All,Visible,name=wildcard,systemname=name", "Enter GMO query");
+            string loadout = DLLCallBack.GetGMOs(v);
+            richTextBox1.AppendText($"GMOs {loadout}\r\n");
+            richTextBox1.ScrollToCaret();
+        }
     }
 }
 

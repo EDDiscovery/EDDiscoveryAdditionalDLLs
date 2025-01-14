@@ -31,6 +31,7 @@ namespace DemoUserControl
         {
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonAspShip = new System.Windows.Forms.Button();
             this.buttonAllShips = new System.Windows.Forms.Button();
@@ -47,7 +48,7 @@ namespace DemoUserControl
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.buttonGMOs = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +73,7 @@ namespace DemoUserControl
             this.panel1.Controls.Add(this.buttonVisited);
             this.panel1.Controls.Add(this.buttonCarrier);
             this.panel1.Controls.Add(this.buttonSuits);
+            this.panel1.Controls.Add(this.buttonGMOs);
             this.panel1.Controls.Add(this.buttonSys1);
             this.panel1.Controls.Add(this.buttonCurrentSys);
             this.panel1.Controls.Add(this.buttonShipLoadout);
@@ -80,6 +82,15 @@ namespace DemoUserControl
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(803, 72);
             this.panel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(693, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "v1";
             // 
             // textBox1
             // 
@@ -265,14 +276,19 @@ namespace DemoUserControl
             this.Column4.HeaderText = "Column4";
             this.Column4.Name = "Column4";
             // 
-            // label1
+            // buttonGMOs
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(693, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "v1";
+            this.buttonGMOs.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonGMOs.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.buttonGMOs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGMOs.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonGMOs.Location = new System.Drawing.Point(219, 31);
+            this.buttonGMOs.Name = "buttonGMOs";
+            this.buttonGMOs.Size = new System.Drawing.Size(102, 22);
+            this.buttonGMOs.TabIndex = 0;
+            this.buttonGMOs.Text = "GMOs";
+            this.buttonGMOs.UseVisualStyleBackColor = false;
+            this.buttonGMOs.Click += new System.EventHandler(this.buttonGMOs_Click);
             // 
             // DemonstrationUserControl
             // 
@@ -311,5 +327,6 @@ namespace DemoUserControl
         private System.Windows.Forms.Button buttonVisited;
         private System.Windows.Forms.Button buttonCarrier;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonGMOs;
     }
 }
