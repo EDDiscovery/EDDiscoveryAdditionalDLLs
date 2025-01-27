@@ -212,12 +212,20 @@ namespace DemoUserControl
 
         private void buttonSys1_Click(object sender, EventArgs e)
         {
-            DLLCallBack.RequestScanData(null,this,"Shumbeia ZK-Z c28-3", false);
+            string v = Prompt.ShowDialog("System Name:", "Enter System query");
+            DLLCallBack.RequestScanData(null, this, v, true);
+        }
+        private void buttonSysLookup2_Click(object sender, EventArgs e)
+        {
+            string v = Prompt.ShowDialog("System Addr:", "Enter System query");
+            long sysaddr = long.Parse(v);
+            DLLCallBack.RequestScanDataExt(null, this, "", sysaddr, 3, "" );
+
         }
 
         public void DataResult(string data)
         {
-            richTextBox1.AppendText($"System {data}\r\n");
+            richTextBox1.AppendText($"System Responded:\r\n{data}\r\n");
             richTextBox1.ScrollToCaret();
         }
 
@@ -268,6 +276,7 @@ namespace DemoUserControl
             richTextBox1.AppendText($"GMOs {loadout}\r\n");
             richTextBox1.ScrollToCaret();
         }
+
     }
 }
 
