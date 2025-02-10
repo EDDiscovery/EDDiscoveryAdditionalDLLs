@@ -55,7 +55,7 @@ namespace EliteDangerousCore.DLL
                     {
                         // note https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.enumeratefiles?view=net-6.0 where if you use *.dll, it searches on framework for *.dll*
 
-                        FileInfo[] allFiles = Directory.EnumerateFiles(dlldirectory, "*.dll", SearchOption.TopDirectoryOnly).Where(x=>Path.GetExtension(x)==".dll") 
+                        FileInfo[] allFiles = Directory.EnumerateFiles(dlldirectory, "*.dll", SearchOption.TopDirectoryOnly).Where(x => Path.GetExtension(x) == ".dll")
                                             .Select(f => new FileInfo(f)).OrderBy(p => p.LastWriteTime).ToArray();
 
                         string[] allowedfiles = alloweddisallowed.Split(',');
@@ -64,7 +64,7 @@ namespace EliteDangerousCore.DLL
                         {
                             EDDDLLCaller caller = new EDDDLLCaller();
 
-                            System.Diagnostics.Debug.WriteLine("Try to load " + f.FullName);
+                            System.Diagnostics.Trace.WriteLine("\r\nTry to load " + f.FullName);
 
                             string filename = System.IO.Path.GetFileNameWithoutExtension(f.FullName);
 
@@ -127,6 +127,9 @@ namespace EliteDangerousCore.DLL
                 }
             }
 
+            // debug demo of external DLL panels can be placed here
+            //  callbacks.AddPanel.Invoke("EDDDDemo-Panel1-0.1.0", typeof(EliteDangerous.DLL.DemonstrationUserControl), "InternalDemo1", "InternalDemo1", "Demo installed panel", BaseUtils.Icons.IconSet.GetIcon("star") );
+
             return new Tuple<string, string, string, string>(loaded, failed, newdlls, disabled);
         }
 
@@ -163,11 +166,11 @@ namespace EliteDangerousCore.DLL
             }
         }
 
-        public void NewUnfilteredJournalEntry(EDDDLLInterfaces.EDDDLLIF.JournalEntry nje)
+        public void NewUnfilteredJournalEntry(EDDDLLInterfaces.EDDDLLIF.JournalEntry nje, bool stored)
         {
             foreach (EDDDLLCaller caller in DLLs)
             {
-                caller.NewUnfilteredJournalEntry(nje);
+                caller.NewUnfilteredJournalEntry(nje, stored);
             }
         }
 
@@ -178,6 +181,25 @@ namespace EliteDangerousCore.DLL
             {
                 caller.NewUIEvent(json);
             }
+        }
+
+        public EDDDLLCaller FindCSharpCallerByStackTrace()        // go down the stack , and see which DLL called 
+        {
+            System.Reflection.Assembly thisAssembly = System.Reflection.Assembly.GetExecutingAssembly();
+
+            System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
+            System.Diagnostics.StackFrame[] frames = stackTrace.GetFrames();
+
+            foreach (var stackFrame in frames)
+            {
+                var ownerAssembly = stackFrame.GetMethod().DeclaringType.Assembly;
+                var dll = DLLs.Find(x => x.Assembly == ownerAssembly);
+
+                if (dll != null)
+                    return dll;
+            }
+
+            return null;
         }
 
         public EDDDLLCaller FindCaller(string name)

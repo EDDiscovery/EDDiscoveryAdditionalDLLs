@@ -194,7 +194,7 @@ namespace CHash
         private void buttonUnfilteredJE_Click(object sender, EventArgs e)
         {
             var nje = MakeJE();
-            mgr.NewUnfilteredJournalEntry(nje);
+            mgr.NewUnfilteredJournalEntry(nje,false);
             richTextBox1.Text += "Unfiltered NJE" + Environment.NewLine;
 
         }

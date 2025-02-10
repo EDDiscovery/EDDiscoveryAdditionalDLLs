@@ -35,7 +35,8 @@ namespace DemoUserControl
 
         public bool DefaultTransparent => false;
 
-        Color FromJson(JToken color) { return Color.FromArgb(color["A"].Int(), color["R"].Int(), color["G"].Int(), color["B"].Int()); }
+        // will cope with null
+        Color FromJson(JToken color) { return System.Drawing.ColorTranslator.FromHtml(color.Str("Yellow")); }
 
         public void Initialise(EDDPanelCallbacks callbacks, int displayid, string themeasjson, string configuration)
         {
@@ -155,24 +156,26 @@ namespace DemoUserControl
             // theme variables can be found in ExtendedControls - theme
 
             JObject theme = themeasjson.JSONParse().Object();
-            Color butbordercolor = FromJson(theme["ButtonBorderColor"]);
-            Color butforecolor = FromJson(theme["ButtonTextColor"]);
-            Color butbackcolor = FromJson(theme["ButtonBackColor"]);
-            buttonShipLoadout.ForeColor = butforecolor;
-            buttonShipLoadout.FlatAppearance.BorderColor = butbordercolor;
-            buttonShipLoadout.BackColor = butbackcolor;
 
-            Color textbordercolor = FromJson(theme["TextBlockBorderColor"]);
-            Color textforecolor = FromJson(theme["TextBlockColor"]);
-            Color textbackcolor = FromJson(theme["TextBackColor"]);
+            Color ButtonBackColor = FromJson(theme["button_back"]);
+            Color ButtonBorderColor = FromJson(theme["button_border"]);
+            Color ButtonTextColor = FromJson(theme["button_text"]);
+
+            buttonShipLoadout.ForeColor = ButtonTextColor;
+            buttonShipLoadout.FlatAppearance.BorderColor = ButtonBorderColor;
+            buttonShipLoadout.BackColor = ButtonBackColor;
+
+            Color TextBackColor = FromJson(theme["textbox_back"]);
+            Color TextBlockColor = FromJson(theme["textbox_fore"]);
+            Color TextBlockBorderColor = FromJson(theme["textbox_border"]);
 
             textBox1.Text = PanelCallBack.GetString("Textbox1", "Default");
-            textBox1.BackColor = textbackcolor;
-            textBox1.ForeColor = textforecolor;
+            textBox1.ForeColor = TextBlockColor;
+            textBox1.BackColor = TextBackColor;
             textBox1.BorderStyle = BorderStyle.FixedSingle;
 
-            richTextBox1.BackColor = textbackcolor;
-            richTextBox1.ForeColor = textforecolor;
+            richTextBox1.BackColor = TextBackColor;
+            richTextBox1.ForeColor = TextBlockColor;
             richTextBox1.BorderStyle = BorderStyle.FixedSingle;
 
             Font fnt = new Font(theme["Font"].Str(), theme["FontSize"].Float());
