@@ -178,10 +178,10 @@ namespace DemoUserControl
             richTextBox1.ForeColor = TextBlockColor;
             richTextBox1.BorderStyle = BorderStyle.FixedSingle;
 
-            Font fnt = new Font(theme["Font"].Str(), theme["FontSize"].Float());
+            Font fnt = new Font(theme["font"].Str("ms sans serif"), theme["fontsize"].Float(8));
             richTextBox1.Font = fnt;
 
-            Color formbackcolor = FromJson(theme["Form"]);
+            Color formbackcolor = FromJson(theme["form"]);
 
             PanelCallBack.DGVTransparent(dataGridView1, false, formbackcolor); // presuming its not transparent.. would need to make this more clever by saving Settransparent state
         }
