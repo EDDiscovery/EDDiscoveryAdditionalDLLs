@@ -280,6 +280,20 @@ namespace DemoUserControl
             richTextBox1.ScrollToCaret();
         }
 
+        private void buttonSpanshDump_Click(object sender, EventArgs e)
+        {
+            string v = Prompt.ShowDialog("System Name:", "Enter System query name or address");
+
+            if (long.TryParse(v, out long sysa))
+            {
+                DLLCallBack.RequestSpanshDump(null, this, "", sysa, true, true, "");
+            }
+            else
+            {
+                DLLCallBack.RequestSpanshDump(null, this, v, 0, true, true, "");
+            }
+
+        }
     }
 }
 

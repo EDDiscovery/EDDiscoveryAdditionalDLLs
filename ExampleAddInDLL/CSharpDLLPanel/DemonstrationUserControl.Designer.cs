@@ -41,6 +41,7 @@ namespace DemoUserControl
             this.buttonCarrier = new System.Windows.Forms.Button();
             this.buttonSuits = new System.Windows.Forms.Button();
             this.buttonGMOs = new System.Windows.Forms.Button();
+            this.buttonSysLookup2 = new System.Windows.Forms.Button();
             this.buttonSys1 = new System.Windows.Forms.Button();
             this.buttonCurrentSys = new System.Windows.Forms.Button();
             this.buttonShipLoadout = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@ namespace DemoUserControl
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonSysLookup2 = new System.Windows.Forms.Button();
+            this.buttonSpanshDump = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +58,9 @@ namespace DemoUserControl
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 377);
+            this.richTextBox1.Location = new System.Drawing.Point(0, 403);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(803, 266);
+            this.richTextBox1.Size = new System.Drawing.Size(803, 240);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -70,6 +71,7 @@ namespace DemoUserControl
             this.panel1.Controls.Add(this.buttonAspShip);
             this.panel1.Controls.Add(this.buttonAllShips);
             this.panel1.Controls.Add(this.buttonShipyards);
+            this.panel1.Controls.Add(this.buttonSpanshDump);
             this.panel1.Controls.Add(this.buttonOutfitting);
             this.panel1.Controls.Add(this.buttonVisited);
             this.panel1.Controls.Add(this.buttonCarrier);
@@ -82,7 +84,7 @@ namespace DemoUserControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 72);
+            this.panel1.Size = new System.Drawing.Size(803, 98);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -213,6 +215,21 @@ namespace DemoUserControl
             this.buttonGMOs.UseVisualStyleBackColor = false;
             this.buttonGMOs.Click += new System.EventHandler(this.buttonGMOs_Click);
             // 
+            // buttonSysLookup2
+            // 
+            this.buttonSysLookup2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonSysLookup2.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.buttonSysLookup2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSysLookup2.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSysLookup2.Location = new System.Drawing.Point(219, 31);
+            this.buttonSysLookup2.Name = "buttonSysLookup2";
+            this.buttonSysLookup2.Size = new System.Drawing.Size(102, 22);
+            this.buttonSysLookup2.TabIndex = 0;
+            this.buttonSysLookup2.Text = "Sys Lookup2";
+            this.buttonSysLookup2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonSysLookup2.UseVisualStyleBackColor = false;
+            this.buttonSysLookup2.Click += new System.EventHandler(this.buttonSysLookup2_Click);
+            // 
             // buttonSys1
             // 
             this.buttonSys1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -266,7 +283,7 @@ namespace DemoUserControl
             this.Column3,
             this.Column4});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 72);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 98);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(803, 305);
             this.dataGridView1.TabIndex = 2;
@@ -292,20 +309,19 @@ namespace DemoUserControl
             this.Column4.HeaderText = "Column4";
             this.Column4.Name = "Column4";
             // 
-            // buttonSysLookup2
+            // buttonSpanshDump
             // 
-            this.buttonSysLookup2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.buttonSysLookup2.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.buttonSysLookup2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSysLookup2.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSysLookup2.Location = new System.Drawing.Point(219, 31);
-            this.buttonSysLookup2.Name = "buttonSysLookup2";
-            this.buttonSysLookup2.Size = new System.Drawing.Size(102, 22);
-            this.buttonSysLookup2.TabIndex = 0;
-            this.buttonSysLookup2.Text = "Sys Lookup2";
-            this.buttonSysLookup2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonSysLookup2.UseVisualStyleBackColor = false;
-            this.buttonSysLookup2.Click += new System.EventHandler(this.buttonSysLookup2_Click);
+            this.buttonSpanshDump.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonSpanshDump.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.buttonSpanshDump.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSpanshDump.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSpanshDump.Location = new System.Drawing.Point(3, 59);
+            this.buttonSpanshDump.Name = "buttonSpanshDump";
+            this.buttonSpanshDump.Size = new System.Drawing.Size(102, 22);
+            this.buttonSpanshDump.TabIndex = 0;
+            this.buttonSpanshDump.Text = "Spansh Dump";
+            this.buttonSpanshDump.UseVisualStyleBackColor = false;
+            this.buttonSpanshDump.Click += new System.EventHandler(this.buttonSpanshDump_Click);
             // 
             // DemonstrationUserControl
             // 
@@ -346,5 +362,6 @@ namespace DemoUserControl
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonGMOs;
         private System.Windows.Forms.Button buttonSysLookup2;
+        private System.Windows.Forms.Button buttonSpanshDump;
     }
 }
